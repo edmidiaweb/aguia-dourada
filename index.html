@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Águia Dourada Mudanças e Transportes - Para Todo Brasil</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #101c4f; /* Azul escuro extraído da identidade da Águia */
+            --secondary: #fbc02d; /* Amarelo ouro da Águia Dourada */
+            --accent: #d32f2f; /* Vermelho dos telefones do baú */
+            --light: #f8f9fa;
+            --dark: #1a1a1a;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', Arial, sans-serif; }
+        body { background-color: var(--white); color: var(--dark); line-height: 1.6; }
+        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        
+        /* Top Bar com foco multicanal baseado no caminhão real */
+        .top-bar { background-color: var(--primary); color: var(--white); padding: 8px 2rem; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-bar .phones { display: flex; gap: 15px; font-weight: bold; }
+        .top-bar .phones a { color: var(--secondary); text-decoration: none; }
+        
+        nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.6rem; font-weight: 900; color: var(--primary); text-transform: uppercase; letter-spacing: -1px; }
+        .logo i { color: var(--secondary); font-size: 2.2rem; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: bold; transition: color 0.3s; text-transform: uppercase; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* HERO REESTRUTURADO USANDO AGUIA.JPEG */
+        .hero {
+            background: linear-gradient(rgba(16, 28, 79, 0.85), rgba(16, 28, 79, 0.85)), url('aguia.jpeg');
+            background-size: cover; 
+            background-position: center; 
+            height: 75vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: var(--white); 
+            padding: 2rem;
+        }
+        .hero h1 { font-size: 3.8rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); text-transform: uppercase; font-weight: 900; }
+        .hero p { font-size: 1.5rem; margin-bottom: 2.5rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
+        
+        .btn { padding: 1rem 2.5rem; border-radius: 5px; font-weight: bold; text-decoration: none; transition: all 0.3s; text-transform: uppercase; cursor: pointer; border: none; display: inline-block; }
+        .btn-primary { background-color: var(--secondary); color: var(--primary); box-shadow: 0 4px 15px rgba(251, 192, 45, 0.4); }
+        .btn-primary:hover { background-color: var(--white); transform: translateY(-3px); }
+
+        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); text-transform: uppercase; position: relative; padding-bottom: 15px; }
+        .section-title h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background-color: var(--secondary); }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .service-card { background-color: var(--light); padding: 3rem 2rem; border-radius: 10px; text-align: center; transition: all 0.3s; border-bottom: 5px solid transparent; }
+        .service-card:hover { transform: translateY(-10px); background-color: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-bottom: 5px solid var(--secondary); }
+        .service-card i { font-size: 4rem; color: var(--primary); margin-bottom: 1.5rem; }
+
+        footer { background-color: #111; color: #ccc; padding: 3rem 2rem; text-align: center; font-size: 0.9rem; }
+        footer .credits { margin-top: 15px; font-size: 0.8rem; color: #666; }
+
+        /* CHATBOT AVANÇADO */
+        #chatbot-container { position: fixed; bottom: 30px; right: 30px; z-index: 2000; }
+        #chatbot-btn { width: 65px; height: 65px; background-color: var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--white); font-size: 1.8rem; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.3); transition: 0.3s; }
+        #chatbot-btn:hover { transform: scale(1.05); }
+        #chatbot-window { position: absolute; bottom: 85px; right: 0; width: 380px; height: 580px; background-color: var(--white); border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        #chatbot-header { background-color: var(--primary); color: var(--white); padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; }
+        #chat-messages { flex: 1; padding: 1.2rem; overflow-y: auto; background-color: #f9f9f9; display: flex; flex-direction: column; gap: 12px; }
+        
+        .msg { max-width: 85%; padding: 12px 16px; border-radius: 15px; font-size: 0.95rem; line-height: 1.4; position: relative; }
+        .bot-msg { background-color: #e3f2fd; color: var(--primary); align-self: flex-start; border-bottom-left-radius: 2px; }
+        .user-msg { background-color: var(--primary); color: var(--white); align-self: flex-end; border-bottom-right-radius: 2px; }
+        
+        .typing { font-style: italic; font-size: 0.8rem; color: #888; margin-bottom: 5px; display: none; }
+        
+        .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
+        .reply-btn { background-color: var(--white); border: 1px solid var(--primary); color: var(--primary); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; transition: 0.2s; }
+        .reply-btn:hover { background-color: var(--primary); color: var(--white); }
+
+        #chat-input-area { padding: 1rem; display: flex; gap: 10px; background-color: var(--white); border-top: 1px solid #eee; }
+        #chat-input { flex: 1; border: 1px solid #ddd; padding: 10px 18px; border-radius: 25px; outline: none; }
+        #send-chat { background-color: var(--accent); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
+
+        @media (max-width: 768px) { 
+            #chatbot-window { width: 320px; height: 520px; } 
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .top-bar { justify-content: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div><i class="fas fa-map-marker-alt"></i> Itanhaém, SP - Atendemos todo o Brasil</div>
+    <div class="phones">
+        <a href="tel:1334226718"><i class="fas fa-phone"></i> (13) 3422-6718</a>
+        <a href="https://wa.me/5513996381799"><i class="fab fa-whatsapp"></i> (13) 99638-1799</a>
+    </div>
+</div>
+
+<header>
+    <nav>
+        <div class="logo"><i class="fas fa-dove"></i> Águia Dourada</div>
+        <div class="nav-links">
+            <a href="#home">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+        </div>
+        <a href="https://wa.me/5513996381799" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">WhatsApp</a>
+    </nav>
+</header>
+
+<section id="home" class="hero" style="margin: 0; max-width: none;">
+    <h1>Mudanças e Transportes</h1>
+    <p>Segurança e confiança para levar seus sonhos a qualquer lugar do Brasil com frota própria e especializada.</p>
+    <a href="#contato" class="btn btn-primary">Pedir Orçamento</a>
+</section>
+
+<section id="servicos">
+    <div class="section-title"><h2>Nossos Serviços</h2></div>
+    <div class="services-grid">
+        <div class="service-card"><i class="fas fa-truck-loading"></i><h3>Mudanças</h3><p>Residenciais e Comerciais com equipe especializada.</p></div>
+        <div class="service-card"><i class="fas fa-box-open"></i><h3>Carretos</h3><p>Fretes rápidos e seguros para itens avulsos.</p></div>
+        <div class="service-card"><i class="fas fa-globe-americas"></i><h3>Nacional</h3><p>Transportamos sua carga para todo o território brasileiro.</p></div>
+    </div>
+</section>
+
+<section id="contato" style="background: #f9f9f9;">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h2 style="color: var(--primary);">Fale Conosco</h2><br>
+        <p>Utilize nosso chatbot para um orçamento rápido ou ligue nos números abaixo:</p><br>
+        <p style="font-size: 1.3rem; color: var(--accent);"><strong>(13) 3422-6718 | (13) 99638-1799 | (13) 98191-5396</strong></p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Águia Dourada Mudanças e Transportes. Todos os direitos reservados.</p>
+    <div class="credits">Desenvolvido por ED Art&Mídia Serviços de Tecnologia.</div>
+</footer>
+
+<!-- CHATBOT INTERATIVO -->
+<div id="chatbot-container">
+    <div id="chatbot-window">
+        <div id="chatbot-header">
+            <div><strong>Assistente Águia</strong><br><small>Orçamento em tempo real</small></div>
+            <i class="fas fa-times" style="cursor: pointer;" onclick="toggleChat()"></i>
+        </div>
+        <div id="chat-messages"></div>
+        <div id="typing-indicator" class="typing" style="margin-left: 20px;">A Águia está digitando...</div>
+        <div id="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Digite aqui...">
+            <button id="send-chat" onclick="handleUserInput()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <div id="chatbot-btn" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></div>
+</div>
+
+<script>
+    const chatMessages = document.getElementById('chat-messages');
+    const typingIndicator = document.getElementById('typing-indicator');
+    let step = 0;
+    let userData = { nome: '', servico: '', origem: '', destino: '', data: '', itens: '' };
+
+    function toggleChat() {
+        const win = document.getElementById('chatbot-window');
+        const isOpen = win.style.display === 'flex';
+        win.style.display = isOpen ? 'none' : 'flex';
+        if (!isOpen && chatMessages.innerHTML === '') {
+            startChat();
+        }
+    }
+
+    function showTyping(show) {
+        typingIndicator.style.display = show ? 'block' : 'none';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addMessage(text, type, options = []) {
+        const div = document.createElement('div');
+        div.className = 'msg ' + (type === 'bot' ? 'bot-msg' : 'user-msg');
+        div.innerText = text;
+        chatMessages.appendChild(div);
+
+        if (options.length > 0) {
+            const replyDiv = document.createElement('div');
+            replyDiv.className = 'quick-replies';
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'reply-btn';
+                btn.innerText = opt;
+                btn.onclick = () => handleOption(opt);
+                replyDiv.appendChild(btn);
+            });
+            chatMessages.appendChild(replyDiv);
+        }
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function startChat() {
+        showTyping(true);
+        setTimeout(() => {
+            showTyping(false);
+            addMessage("Olá! Sou o assistente da Águia Dourada. Para começarmos seu orçamento, qual o seu nome?", "bot");
+            step = 1;
+        }, 1000);
+    }
+
+    function handleUserInput() {
+        const input = document.getElementById('chat-input');
+        const text = input.value.trim();
+        if (!text) return;
+        input.value = '';
+        processStep(text);
+    }
+
+    function handleOption(opt) {
+        processStep(opt);
+    }
+
+    function processStep(text) {
+        addMessage(text, "user");
+        showTyping(true);
+
+        setTimeout(() => {
+            showTyping(false);
+            if (step === 1) {
+                userData.nome = text;
+                addMessage(`Muito prazer, ${text}! Qual serviço você precisa?`, "bot", ["Mudança Residencial", "Mudança Comercial", "Carreto", "Outros"]);
+                step = 2;
+            } else if (step === 2) {
+                userData.servico = text;
+                addMessage("De qual cidade sairá a carga?", "bot");
+                step = 3;
+            } else if (step === 3) {
+                userData.origem = text;
+                addMessage("E para qual cidade ela vai?", "bot");
+                step = 4;
+            } else if (step === 4) {
+                userData.destino = text;
+                addMessage("Para quando você precisa do serviço? (Pode ser uma data exata ou uma previsão)", "bot");
+                step = 5;
+            } else if (step === 5) {
+                userData.data = text;
+                addMessage("Certo! Agora, descreva brevemente os itens que serão transportados (ex: sofá, 2 camas, geladeira, 10 caixas...)", "bot");
+                step = 6;
+            } else if (step === 6) {
+                userData.itens = text;
+                addMessage(`Obrigado pelas informações! Resumo: ${userData.servico} de ${userData.origem} para ${userData.destino} em ${userData.data}. Quer enviar agora para nossa equipe via WhatsApp?`, "bot", ["Sim, enviar orçamento!", "Não, obrigado."]);
+                step = 7;
+            } else if (step === 7) {
+                if (text.includes("Sim")) {
+                    addMessage("Ótimo! Clique no botão abaixo para concluir o envio.", "bot");
+                    const zapText = `Olá, meu nome é ${userData.nome}. Preciso de um orçamento:\n- Serviço: ${userData.servico}\n- Rota: ${userData.origem} para ${userData.destino}\n- Data: ${userData.data}\n- Itens: ${userData.itens}`;
+                    const link = document.createElement('a');
+                    link.href = "https://wa.me/5513996381799?text=" + encodeURIComponent(zapText);
+                    link.className = "btn btn-primary";
+                    link.style.display = "block";
+                    link.style.marginTop = "10px";
+                    link.innerText = "Enviar para o WhatsApp";
+                    chatMessages.appendChild(link);
+                } else {
+                    addMessage("Tudo bem! Se precisar de algo mais, estou à disposição.", "bot");
+                }
+                step = 8;
+            } else {
+                addMessage("Como posso te ajudar com mais alguma coisa?", "bot", ["Novo Orçamento", "Ver Serviços", "Falar com Atendente"]);
+                step = 1;
+            }
+        }, 1000);
+    }
+
+    document.getElementById('chat-input').addEventListener('keypress', (e) => { if(e.key === 'Enter') handleUserInput(); });
+</script>
+
+</body>
+</html>
