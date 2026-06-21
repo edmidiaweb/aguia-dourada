@@ -7,9 +7,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #101c4f; /* Azul escuro extraído da frota real */
-            --secondary: #fbc02d; /* Amarelo ouro da Águia Dourada */
-            --accent: #d32f2f; /* Vermelho marcante dos telefones */
+            --primary: #101c4f; 
+            --secondary: #fbc02d; 
+            --accent: #d32f2f; 
             --light: #f8f9fa;
             --dark: #1a1a1a;
             --white: #ffffff;
@@ -19,7 +19,6 @@
         body { background-color: var(--white); color: var(--dark); line-height: 1.6; }
         header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         
-        /* Top Bar responsiva com foco multicanal */
         .top-bar { background-color: var(--primary); color: var(--white); padding: 8px 2rem; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .top-bar .phones { display: flex; gap: 15px; font-weight: bold; }
         .top-bar .phones a { color: var(--secondary); text-decoration: none; }
@@ -27,15 +26,12 @@
         nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 12px; font-size: 1.6rem; font-weight: 900; color: var(--primary); text-transform: uppercase; letter-spacing: -1px; }
         .logo i { color: var(--secondary); font-size: 2.2rem; }
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: bold; transition: color 0.3s; text-transform: uppercase; font-size: 0.9rem; }
-        .nav-links a:hover { color: var(--accent); }
-
-        /* HERO UTILIZANDO A IMAGEM REAL AGUIA.JPEG */
+        
+        /* HERO CORRIGIDO UTILIZANDO A IMAGEM REAL FRONT COMPATÍVEL */
         .hero {
-            background: linear-gradient(rgba(16, 28, 79, 0.85), rgba(16, 28, 79, 0.85)), url('aguia.jpeg');
+            background: linear-gradient(rgba(16, 28, 79, 0.8), rgba(16, 28, 79, 0.85)), url('img.jpg');
             background-size: cover; 
-            background-position: center; 
+            background-position: center 30%; 
             height: 75vh; 
             display: flex; 
             flex-direction: column; 
@@ -45,80 +41,72 @@
             color: var(--white); 
             padding: 2rem;
         }
-        .hero h1 { font-size: 3.8rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); text-transform: uppercase; font-weight: 900; }
-        .hero p { font-size: 1.5rem; margin-bottom: 2.5rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); text-transform: uppercase; font-weight: 900; }
+        .hero p { font-size: 1.4rem; margin-bottom: 2.5rem; max-width: 800px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
         
         .btn { padding: 1rem 2.5rem; border-radius: 5px; font-weight: bold; text-decoration: none; transition: all 0.3s; text-transform: uppercase; cursor: pointer; border: none; display: inline-block; }
         .btn-primary { background-color: var(--secondary); color: var(--primary); box-shadow: 0 4px 15px rgba(251, 192, 45, 0.4); }
         .btn-primary:hover { background-color: var(--white); transform: translateY(-3px); }
 
-        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { font-size: 2.5rem; color: var(--primary); text-transform: uppercase; position: relative; padding-bottom: 15px; }
+        section { padding: 4.5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 3.5rem; }
+        .section-title h2 { font-size: 2.3rem; color: var(--primary); text-transform: uppercase; position: relative; padding-bottom: 15px; }
         .section-title h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background-color: var(--secondary); }
 
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .service-card { background-color: var(--light); padding: 3rem 2rem; border-radius: 10px; text-align: center; transition: all 0.3s; border-bottom: 5px solid transparent; }
         .service-card:hover { transform: translateY(-10px); background-color: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-bottom: 5px solid var(--secondary); }
-        .service-card i { font-size: 4rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .service-card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+
+        /* NOVA SEÇÃO DE INFRAESTRUTURA E FROTA */
+        .frota-display { display: flex; gap: 2.5rem; align-items: center; background: var(--light); padding: 3rem; border-radius: 12px; margin-top: 2rem; }
+        .frota-img { flex: 1; min-width: 300px; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 4px solid var(--white); }
+        .frota-img img { width: 100%; height: auto; display: block; object-fit: cover; }
+        .frota-info { flex: 1; }
+        .frota-info h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; }
+        .frota-info ul { list-style: none; margin-top: 1rem; }
+        .frota-info ul li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-weight: 500; }
+        .frota-info ul li i { color: var(--accent); }
+
+        /* NOVO SHOWROOM DE CERTIFICAÇÃO E DETALHES */
+        .galeria-detalhes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        .galeria-card { background: var(--white); border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .galeria-card img { width: 100%; height: 200px; object-fit: cover; }
+        .galeria-card .caption { padding: 1rem; text-align: center; font-weight: bold; color: var(--primary); font-size: 0.95rem; background: var(--white); }
+
+        /* CONTATO ESTILIZADO EM CAIXA DE EMBALAGEM */
+        .contato-wrapper {
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('img3.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 2px dashed #bbb;
+        }
 
         footer { background-color: #111; color: #ccc; padding: 3rem 2rem; text-align: center; font-size: 0.9rem; }
         footer .credits { margin-top: 15px; font-size: 0.8rem; color: #666; }
 
-        /* ARQUITETURA DE CHATBOT COMPATÍVEL COM DESKTOP E CELULARES */
-        #chatbot-container { 
-            position: fixed; 
-            bottom: 20px; 
-            right: 20px; 
-            z-index: 9999; 
-        }
-        
-        #chatbot-btn { 
-            width: 60px; 
-            height: 60px; 
-            background-color: var(--accent); 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            color: var(--white); 
-            font-size: 1.8rem; 
-            cursor: pointer; 
-            box-shadow: 0 5px 25px rgba(0,0,0,0.4); 
-            transition: 0.3s; 
-            -webkit-tap-highlight-color: transparent;
-        }
-        
+        /* ARQUITETURA DE CHATBOT FLUTUANTE DE ALTA PERFORMANCE */
+        #chatbot-container { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
+        #chatbot-btn { width: 60px; height: 60px; background-color: var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--white); font-size: 1.8rem; cursor: pointer; box-shadow: 0 5px 25px rgba(0,0,0,0.4); transition: 0.3s; -webkit-tap-highlight-color: transparent; }
         #chatbot-btn:hover { transform: scale(1.05); }
         
         #chatbot-window { 
-            position: fixed; 
-            bottom: 95px; 
-            right: 20px; 
-            width: 380px; 
-            max-width: calc(100vw - 40px); 
-            height: 70vh; 
-            max-height: 580px;
-            background-color: var(--white); 
-            border-radius: 15px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3); 
-            display: none; 
-            flex-direction: column; 
-            overflow: hidden; 
-            animation: slideIn 0.3s ease-out; 
+            position: fixed; bottom: 95px; right: 20px; width: 380px; max-width: calc(100vw - 40px); height: 70vh; max-height: 580px;
+            background-color: var(--white); border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); display: none; flex-direction: column; overflow: hidden; animation: slideIn 0.3s ease-out; 
         }
 
         @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
         #chatbot-header { background-color: var(--primary); color: var(--white); padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; }
         #chat-messages { flex: 1; padding: 1.2rem; overflow-y: auto; background-color: #f9f9f9; display: flex; flex-direction: column; gap: 12px; }
         
         .msg { max-width: 85%; padding: 12px 16px; border-radius: 15px; font-size: 0.95rem; line-height: 1.4; position: relative; }
         .bot-msg { background-color: #e3f2fd; color: var(--primary); align-self: flex-start; border-bottom-left-radius: 2px; }
         .user-msg { background-color: var(--primary); color: var(--white); align-self: flex-end; border-bottom-right-radius: 2px; }
-        
         .typing { font-style: italic; font-size: 0.8rem; color: #888; margin-bottom: 5px; display: none; }
-        
         .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
         .reply-btn { background-color: var(--white); border: 1px solid var(--primary); color: var(--primary); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; transition: 0.2s; }
         .reply-btn:hover { background-color: var(--primary); color: var(--white); }
@@ -128,20 +116,14 @@
         #send-chat { background-color: var(--accent); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; }
 
         @media (max-width: 768px) { 
-            #chatbot-window { 
-                bottom: 90px;
-                right: 15px;
-                max-width: calc(100vw - 30px);
-                height: 65vh; 
-            }
-            #chatbot-container {
-                bottom: 15px;
-                right: 15px;
-            }
-            .hero h1 { font-size: 2.3rem; }
+            #chatbot-window { bottom: 90px; right: 15px; max-width: calc(100vw - 30px); height: 65vh; }
+            #chatbot-container { bottom: 15px; right: 15px; }
+            .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1.1rem; }
             .top-bar { justify-content: center; text-align: center; }
-            .nav-links { display: none; } /* Oculta links redundantes no mobile focando no CTAs principais */
+            .nav-links { display: none; }
+            .frota-display { flex-direction: column; padding: 1.5rem; }
+            .frota-img { min-width: 100%; }
         }
     </style>
 </head>
@@ -162,6 +144,7 @@
     </nav>
 </header>
 
+<!-- BANNER PRINCIPAL COM ACESSO DIRETO A IMG.JPG -->
 <section id="home" class="hero" style="margin: 0; max-width: none;">
     <h1>Mudanças e Transportes</h1>
     <p>Segurança e confiança para levar seus sonhos a qualquer lugar do Brasil com frota própria e especializada.</p>
@@ -171,17 +154,49 @@
 <section id="servicos">
     <div class="section-title"><h2>Nossos Serviços</h2></div>
     <div class="services-grid">
-        <div class="service-card"><i class="fas fa-truck-loading"></i><h3>Mudanças</h3><p>Residenciais e Comerciais com equipe especializada.</p></div>
-        <div class="service-card"><i class="fas fa-box-open"></i><h3>Carretos</h3><p>Fretes rápidos e seguros para itens avulsos.</p></div>
-        <div class="service-card"><i class="fas fa-globe-americas"></i><h3>Nacional</h3><p>Transportamos sua carga para todo o território brasileiro.</p></div>
+        <div class="service-card"><i class="fas fa-truck-loading"></i><h3>Mudanças</h3><p>Residenciais e Comerciais com equipe e manuseio cuidadoso.</p></div>
+        <div class="service-card"><i class="fas fa-box-open"></i><h3>Carretos</h3><p>Fretes rápidos, pontuais e seguros para itens avulsos.</p></div>
+        <div class="service-card"><i class="fas fa-globe-americas"></i><h3>Nacional</h3><p>Logística estruturada para entregas em todo o território nacional.</p></div>
     </div>
 </section>
 
-<section id="contato" style="background: #f9f9f9;">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <h2 style="color: var(--primary);">Fale Conosco</h2><br>
-        <p>Utilize nosso chatbot para um orçamento rápido ou ligue nos números abaixo:</p><br>
-        <p style="font-size: 1.3rem; color: var(--accent);"><strong>(13) 3422-6718 | (13) 99638-1799 | (13) 98191-5396</strong></p>
+<!-- SEÇÃO INSTITUCIONAL DA FROTA PRÓPRIA COM IMG1.JPG -->
+<section id="frota" style="padding-top: 0;">
+    <div class="section-title"><h2>Nossa Estrutura</h2></div>
+    <div class="frota-display">
+        <div class="frota-img">
+            <img src="img1.jpg" alt="Caminhão Águia Dourada Lateral">
+        </div>
+        <div class="frota-info">
+            <h3>Frota Própria e Identificada</h3>
+            <p>Trabalhamos exclusivamente com veículos novos, revisados e totalmente equipados para o transporte seguro do seu patrimônio. Nosso padrão de identificação garante total transparência nas vistorias de rodovias e condomínios.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Caminhões baú higienizados e protegidos</li>
+                <li><i class="fas fa-check-circle"></i> Motoristas profissionais e experientes</li>
+                <li><i class="fas fa-check-circle"></i> Pontualidade rigorosa no carregamento e entrega</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- VITRINE ADICIONAL DE AUTENTICIDADE DO BAÚ COM IMG2.JPG E IMG3.JPG -->
+    <div class="galeria-detalhes">
+        <div class="galeria-card">
+            <img src="img2.jpg" alt="Painel Superior Águia Dourada">
+            <div class="caption">Identificação Frontal Homologada</div>
+        </div>
+        <div class="galeria-card">
+            <img src="img3.jpg" alt="Painel Traseiro Águia Dourada">
+            <div class="caption">Canais Oficiais Diretos de Fábrica</div>
+        </div>
+    </div>
+</section>
+
+<!-- BLOCO DE CONTATO ADAPTADO COM TEXTURA DE FUNDO DA IMG3.JPG -->
+<section id="contato" style="padding-top: 0;">
+    <div class="contato-wrapper">
+        <h2 style="color: var(--primary); text-transform: uppercase; font-weight: 900;">Fale Conosco</h2><br>
+        <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Utilize nosso assistente virtual no canto inferior da tela para simular seu orçamento imediatamente ou ligue direto na nossa central de atendimento:</p><br>
+        <p style="font-size: 1.5rem; color: var(--accent);"><strong>(13) 3422-6718<br>(13) 99638-1799 | (13) 98191-5396</strong></p>
     </div>
 </section>
 
@@ -190,7 +205,7 @@
     <div class="credits">Desenvolvido por ED Art&Mídia Serviços de Tecnologia.</div>
 </footer>
 
-<!-- CHATBOT FLUTUANTE RESPONSIVO -->
+<!-- CHATBOT INTERATIVO RESPONSIVO -->
 <div id="chatbot-container">
     <div id="chatbot-window">
         <div id="chatbot-header">
@@ -277,7 +292,7 @@
             showTyping(false);
             if (step === 1) {
                 userData.nome = text;
-                addMessage(`Muito prazer, ${text}! Qual serviço você precisa?`, "bot", ["Mudança Residencial", "Mudança Comercial", "Carreto", "Outros"]);
+                addMessage(`Muito prazer, ${text}! Qual serviço você precisa?`, "bot", ["Mudança Residential", "Mudança Comercial", "Carreto", "Outros"]);
                 step = 2;
             } else if (step === 2) {
                 userData.servico = text;
@@ -289,33 +304,34 @@
                 step = 4;
             } else if (step === 4) {
                 userData.destino = text;
-                addMessage("Para quando você precisa do serviço? (Pode ser uma data exata ou uma previsão)", "bot");
+                addMessage("Para quando você precisa do serviço? (Pode ser uma data ou previsão)", "bot");
                 step = 5;
             } else if (step === 5) {
                 userData.data = text;
-                addMessage("Certo! Agora, descreva brevemente os itens que serão transportados (ex: sofá, 2 camas, geladeira, 10 caixas...)", "bot");
+                addMessage("Certo! Agora, descreva brevemente os itens que serão transportados (ex: sofá, geladeira, caixas...)", "bot");
                 step = 6;
             } else if (step === 6) {
                 userData.itens = text;
-                addMessage(`Obrigado pelas informações! Resumo: ${userData.servico} de ${userData.origem} para ${userData.destino} em ${userData.data}. Itens: ${userData.itens}. Quer enviar agora para nossa equipe via WhatsApp?`, "bot", ["Sim, enviar orçamento!", "Não, obrigado."]);
+                addMessage(`Obrigado pelas informações! Resumo: ${userData.servico} de ${userData.origem} para ${userData.destino}. Quer enviar agora para nossa equipe via WhatsApp?`, "bot", ["Sim, enviar orçamento!", "Não, obrigado."]);
                 step = 7;
             } else if (step === 7) {
                 if (text.includes("Sim")) {
-                    addMessage("Ótimo! Clique no botão abaixo para concluir o envio.", "bot");
-                    const zapText = `Olá, meu nome é ${userData.nome}. Preciso de um orçamento:\n- Serviço: ${userData.servico}\n- Rota: ${userData.origem} para ${userData.destino}\n- Data: ${userData.data}\n- Itens: ${userData.itens}`;
+                    addMessage("Perfeito! Clique no botão abaixo para concluir o envio da sua ficha técnica.", "bot");
+                    const zapText = `Olá, me chamo ${userData.nome}. Solicito orçamento para:\n- Tipo: ${userData.servico}\n- Rota: ${userData.origem} -> ${userData.destino}\n- Previsão: ${userData.data}\n- Relação: ${userData.itens}`;
                     const link = document.createElement('a');
                     link.href = "https://wa.me/5513996381799?text=" + encodeURIComponent(zapText);
                     link.className = "btn btn-primary";
                     link.style.display = "block";
                     link.style.marginTop = "10px";
+                    link.style.textAlign = "center";
                     link.innerText = "Enviar para o WhatsApp";
                     chatMessages.appendChild(link);
                 } else {
-                    addMessage("Tudo bem! Se precisar de algo mais, estou à disposição.", "bot");
+                    addMessage("Tudo bem! Se precisar de ajustes, basta digitar uma nova mensagem.", "bot");
                 }
                 step = 8;
             } else {
-                addMessage("Como posso te ajudar com mais alguma coisa?", "bot", ["Novo Orçamento", "Ver Serviços", "Falar com Atendente"]);
+                addMessage("Como posso te ajudar agora?", "bot", ["Novo Orçamento", "Falar com Atendente"]);
                 step = 1;
             }
         }, 1000);
