@@ -27,7 +27,6 @@
         .logo { display: flex; align-items: center; gap: 12px; font-size: 1.6rem; font-weight: 900; color: var(--primary); text-transform: uppercase; letter-spacing: -1px; }
         .logo i { color: var(--secondary); font-size: 2.2rem; }
         
-        /* HERO CORRIGIDO UTILIZANDO A IMAGEM REAL FRONT COMPATÍVEL */
         .hero {
             background: linear-gradient(rgba(16, 28, 79, 0.8), rgba(16, 28, 79, 0.85)), url('img.jpg');
             background-size: cover; 
@@ -58,7 +57,6 @@
         .service-card:hover { transform: translateY(-10px); background-color: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-bottom: 5px solid var(--secondary); }
         .service-card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 1.5rem; }
 
-        /* NOVA SEÇÃO DE INFRAESTRUTURA E FROTA */
         .frota-display { display: flex; gap: 2.5rem; align-items: center; background: var(--light); padding: 3rem; border-radius: 12px; margin-top: 2rem; }
         .frota-img { flex: 1; min-width: 300px; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 4px solid var(--white); }
         .frota-img img { width: 100%; height: auto; display: block; object-fit: cover; }
@@ -68,28 +66,20 @@
         .frota-info ul li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-weight: 500; }
         .frota-info ul li i { color: var(--accent); }
 
-        /* NOVO SHOWROOM DE CERTIFICAÇÃO E DETALHES */
         .galeria-detalhes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
         .galeria-card { background: var(--white); border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .galeria-card img { width: 100%; height: 200px; object-fit: cover; }
         .galeria-card .caption { padding: 1rem; text-align: center; font-weight: bold; color: var(--primary); font-size: 0.95rem; background: var(--white); }
 
-        /* CONTATO ESTILIZADO EM CAIXA DE EMBALAGEM */
         .contato-wrapper {
             background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('img3.jpg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 2px dashed #bbb;
+            background-size: cover; background-position: center; border-radius: 12px; padding: 4rem 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 2px dashed #bbb;
         }
 
         footer { background-color: #111; color: #ccc; padding: 3rem 2rem; text-align: center; font-size: 0.9rem; }
         footer .credits { margin-top: 15px; font-size: 0.8rem; color: #666; }
 
-        /* ARQUITETURA DE CHATBOT FLUTUANTE DE ALTA PERFORMANCE */
+        /* ARQUITETURA RESPONSIVA DO CHATBOT - PREVINE SUMIÇO MOBILE */
         #chatbot-container { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
         #chatbot-btn { width: 60px; height: 60px; background-color: var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--white); font-size: 1.8rem; cursor: pointer; box-shadow: 0 5px 25px rgba(0,0,0,0.4); transition: 0.3s; -webkit-tap-highlight-color: transparent; }
         #chatbot-btn:hover { transform: scale(1.05); }
@@ -144,7 +134,6 @@
     </nav>
 </header>
 
-<!-- BANNER PRINCIPAL COM ACESSO DIRETO A IMG.JPG -->
 <section id="home" class="hero" style="margin: 0; max-width: none;">
     <h1>Mudanças e Transportes</h1>
     <p>Segurança e confiança para levar seus sonhos a qualquer lugar do Brasil com frota própria e especializada.</p>
@@ -160,13 +149,10 @@
     </div>
 </section>
 
-<!-- SEÇÃO INSTITUCIONAL DA FROTA PRÓPRIA COM IMG1.JPG -->
 <section id="frota" style="padding-top: 0;">
     <div class="section-title"><h2>Nossa Estrutura</h2></div>
     <div class="frota-display">
-        <div class="frota-img">
-            <img src="img1.jpg" alt="Caminhão Águia Dourada Lateral">
-        </div>
+        <div class="frota-img"><img src="img1.jpg" alt="Caminhão Águia Dourada Lateral"></div>
         <div class="frota-info">
             <h3>Frota Própria e Identificada</h3>
             <p>Trabalhamos exclusivamente com veículos novos, revisados e totalmente equipados para o transporte seguro do seu patrimônio. Nosso padrão de identificação garante total transparência nas vistorias de rodovias e condomínios.</p>
@@ -178,7 +164,6 @@
         </div>
     </div>
 
-    <!-- VITRINE ADICIONAL DE AUTENTICIDADE DO BAÚ COM IMG2.JPG E IMG3.JPG -->
     <div class="galeria-detalhes">
         <div class="galeria-card">
             <img src="img2.jpg" alt="Painel Superior Águia Dourada">
@@ -191,7 +176,6 @@
     </div>
 </section>
 
-<!-- BLOCO DE CONTATO ADAPTADO COM TEXTURA DE FUNDO DA IMG3.JPG -->
 <section id="contato" style="padding-top: 0;">
     <div class="contato-wrapper">
         <h2 style="color: var(--primary); text-transform: uppercase; font-weight: 900;">Fale Conosco</h2><br>
@@ -205,7 +189,7 @@
     <div class="credits">Desenvolvido por ED Art&Mídia Serviços de Tecnologia.</div>
 </footer>
 
-<!-- CHATBOT INTERATIVO RESPONSIVO -->
+<!-- CHATBOT INTELIGENTE COM FUNIL DE ARQUITETURA DE IMÓVEIS -->
 <div id="chatbot-container">
     <div id="chatbot-window">
         <div id="chatbot-header">
@@ -226,7 +210,7 @@
     const chatMessages = document.getElementById('chat-messages');
     const typingIndicator = document.getElementById('typing-indicator');
     let step = 0;
-    let userData = { nome: '', servico: '', origem: '', destino: '', data: '', itens: '' };
+    let userData = { nome: '', servico: '', origem: '', destino: '', data: '', itens: '', imovelTipo: '', imovelDetalhe: '' };
 
     function toggleChat() {
         const win = document.getElementById('chatbot-window');
@@ -290,9 +274,11 @@
 
         setTimeout(() => {
             showTyping(false);
+            
+            // FUNIL DE ETAPAS DO BOT
             if (step === 1) {
                 userData.nome = text;
-                addMessage(`Muito prazer, ${text}! Qual serviço você precisa?`, "bot", ["Mudança Residential", "Mudança Comercial", "Carreto", "Outros"]);
+                addMessage(`Muito prazer, ${text}! Qual serviço você precisa?`, "bot", ["Mudança Residencial", "Mudança Comercial", "Carreto", "Outros"]);
                 step = 2;
             } else if (step === 2) {
                 userData.servico = text;
@@ -308,16 +294,76 @@
                 step = 5;
             } else if (step === 5) {
                 userData.data = text;
-                addMessage("Certo! Agora, descreva brevemente os itens que serão transportados (ex: sofá, geladeira, caixas...)", "bot");
+                addMessage("Descreva brevemente os itens que serão transportados (ex: sofá, geladeira, fogão, 15 caixas...)", "bot");
                 step = 6;
             } else if (step === 6) {
                 userData.itens = text;
-                addMessage(`Obrigado pelas informações! Resumo: ${userData.servico} de ${userData.origem} para ${userData.destino}. Quer enviar agora para nossa equipe via WhatsApp?`, "bot", ["Sim, enviar orçamento!", "Não, obrigado."]);
+                // NOVA PERGUNTA INSERIDA: DETECÇÃO DE ESTRUTURA DO IMÓVEL
+                addMessage("Os itens a serem entregues serão deixados em qual tipo de imóvel?", "bot", ["Casa Térrea", "Sobrado", "Apartamento"]);
                 step = 7;
             } else if (step === 7) {
+                userData.imovelTipo = text;
+                
+                if (text === "Casa Térrea") {
+                    addMessage("Entendido. Sobre o local da entrega na Casa Térrea: o acesso para carregar é próximo da calçada ou nos fundos da residência?", "bot", ["Próximo da calçada", "Nos fundos da residência"]);
+                    step = 8; // Avança para detalhe de casa térrea
+                } else if (text === "Sobrado") {
+                    addMessage("Sobre o Sobrado: o acesso inicial é próximo da calçada ou pelos fundos da casa?", "bot", ["Próximo da calçada", "Pelos fundos da casa"]);
+                    step = 9; // Avança para o primeiro detalhe do sobrado
+                } else if (text === "Apartamento") {
+                    addMessage("Sobre o Apartamento: o acesso para a subida dos móveis é por escada ou por elevador?", "bot", ["Por Escada", "Por Elevador"]);
+                    step = 11; // Avança para detalhe de apartamento
+                } else {
+                    // Fallback caso digitem texto solto
+                    addMessage("Poderia detalhar se existem escadas ou se o acesso é longo até a entrada?", "bot");
+                    step = 13;
+                }
+            } 
+            // SUB-FLUXO: CASA TÉRREA
+            else if (step === 8) {
+                userData.imovelDetalhe = `Acesso: ${text}`;
+                irParaFinalizacao();
+            }
+            // SUB-FLUXO: SOBRADO (PASSO 1: ACESSO)
+            else if (step === 9) {
+                userData.imovelDetalhe = `Acesso: ${text}`;
+                addMessage("E quantos lances de escada existem no sobrado para subir os móveis?", "bot");
+                step = 10;
+            }
+            // SUB-FLUXO: SOBRADO (PASSO 2: ESCADAS)
+            else if (step === 10) {
+                userData.imovelDetalhe += ` | Escadas: ${text} lance(s)`;
+                irParaFinalizacao();
+            }
+            // SUB-FLUXO: APARTAMENTO (PASSO 1: ELEVADOR OU ESCADA)
+            else if (step === 11) {
+                userData.imovelDetalhe = `Tipo de Subida: ${text}`;
+                if (text === "Por Escada") {
+                    addMessage("Em qual andar fica o apartamento?", "bot");
+                    step = 12;
+                } else {
+                    userData.imovelDetalhe += " | Possui Elevador";
+                    irParaFinalizacao();
+                }
+            }
+            // SUB-FLUXO: APARTAMENTO (PASSO 2: ANDAR DA ESCADA)
+            else if (step === 12) {
+                userData.imovelDetalhe += ` | Andar: ${text}º Andar`;
+                irParaFinalizacao();
+            }
+            // FALLBACK DETALHES GERAIS
+            else if (step === 13) {
+                userData.imovelDetalhe = text;
+                irParaFinalizacao();
+            }
+            // ETAPA FINAL: WHATSAPP CONSOLIDADO
+            else if (step === 14) {
                 if (text.includes("Sim")) {
-                    addMessage("Perfeito! Clique no botão abaixo para concluir o envio da sua ficha técnica.", "bot");
-                    const zapText = `Olá, me chamo ${userData.nome}. Solicito orçamento para:\n- Tipo: ${userData.servico}\n- Rota: ${userData.origem} -> ${userData.destino}\n- Previsão: ${userData.data}\n- Relação: ${userData.itens}`;
+                    addMessage("Perfeito! Clique no botão abaixo para nos enviar os dados.", "bot");
+                    
+                    // MONTAGEM DO WHATSAPP DA ÁGUIA COM OS NOVOS CAMPOS ENGENHADOS
+                    const zapText = `Olá, me chamo ${userData.nome}. Solicito orçamento:\n- Tipo: ${userData.servico}\n- Rota: ${userData.origem} -> ${userData.destino}\n- Previsão: ${userData.data}\n- Relação: ${userData.itens}\n- Entrega: ${userData.imovelTipo} (${userData.imovelDetalhe})`;
+                    
                     const link = document.createElement('a');
                     link.href = "https://wa.me/5513996381799?text=" + encodeURIComponent(zapText);
                     link.className = "btn btn-primary";
@@ -327,14 +373,19 @@
                     link.innerText = "Enviar para o WhatsApp";
                     chatMessages.appendChild(link);
                 } else {
-                    addMessage("Tudo bem! Se precisar de ajustes, basta digitar uma nova mensagem.", "bot");
+                    addMessage("Tudo bem! Se precisar de ajustes ou refazer o orçamento, digite uma nova mensagem.", "bot");
                 }
-                step = 8;
+                step = 15;
             } else {
                 addMessage("Como posso te ajudar agora?", "bot", ["Novo Orçamento", "Falar com Atendente"]);
                 step = 1;
             }
         }, 1000);
+    }
+
+    function irParaFinalizacao() {
+        addMessage(`Obrigado pelas informações detalhadas! Resumo da Entrega: ${userData.imovelTipo} [${userData.imovelDetalhe}]. Quer enviar agora a ficha completa para nossa equipe no WhatsApp?`, "bot", ["Sim, enviar orçamento!", "Não, obrigado."]);
+        step = 14;
     }
 
     document.getElementById('chat-input').addEventListener('keypress', (e) => { if(e.key === 'Enter') handleUserInput(); });
